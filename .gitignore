@@ -1,1 +1,5 @@
+# python virtual environment directory
 pyvenv
+
+# .env file with private credentials
+.env
