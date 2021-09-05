@@ -2,7 +2,6 @@ from flask import Flask
 from flask_ngrok import run_with_ngrok # enables Flask application to be hosted on non localhost URLs, so webhooks can be enabled #CHECKME (for development only)
 from flask import request
 
-
 def config():
 	app = Flask(__name__)
 	run_with_ngrok(app)  # Start ngrok when app is run #CHECKME (for development only)
@@ -27,7 +26,7 @@ def feed():
     if challenge:
         return challenge
 
-    print(request.data)  # binary literal with xml payload
+    print(request.data) # binary literal with xml payload
 
     return ('', 204)
 
@@ -45,4 +44,7 @@ if __name__ =="__main__":
 # Send notifications to users
 # Messenger, Whatsapp, Phone # are next steps
 # Flask app.config/env variables can be used (or a config.json file) for local variables
+# allow users to subscribe/unsubscribe to email notifications directly if they are logged in, or 
+# through a secure email confirmation link which expires, if they are not
+# allow users to make an account
 
