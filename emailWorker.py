@@ -3,8 +3,6 @@ import smtplib
 
 import ssl
 
-# Here are the email package modules we"ll need
-
 # from email.mime.image import MIMEImage # not needed for now
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -13,13 +11,15 @@ import os
 
 from dotenv import load_dotenv
 
+from formEmailHTML import generateHTMLForEmail
+
 def createEmail(emailAddress, recipientEmailAddress):
 	# Create the container (outer) email message.
 
 	# By default the type is set to mixed
 	message = MIMEMultipart()
 	print("\n\n", message)
-	message["Subject"] = "Hi"
+	message["Subject"] = "122"
 	# me == the sender"s email address
 	# family = the list of all recipients" email addresses
 	message["From"] = "User Alerter <" + emailAddress + ">" # message["From"] contains the sender's email address
@@ -37,8 +37,9 @@ def createEmail(emailAddress, recipientEmailAddress):
 	textual_message.attach(plaintext_part)
 
 	# HTML part of the message
-	html_part = MIMEText("<h1>Hello this is a test message</h1><br><p style='color:red'>This is the first test message for this app! Congrats for seeing it\
-	!</p>", "html")
+	# html_part = MIMEText("<h1>Hello this is a test message</h1><br><p style='color:red'>This is the first test message for this app! Congrats for seeing it\
+	# !</p>", "html")
+	html_part = MIMEText(generateHTMLForEmail(), "html")
 	textual_message.attach(html_part)
 
 	message.attach(textual_message)

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Shardul Shah">
+		<meta name="keywords" content="User Alerter, User, Alerter, Youtube">
+		<meta name="description" content="Application to alert users of Youtube video releases.">
+		<meta name="application-name" content="User Alerter">
+
+		<title> 
+		User Alerter
+		 </title>
+
+		<style>
+			p
+			{
+				color:  red;
+				font-size:  1em;
+				font-family:  "Times New Roman", "Arial";
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			Hi {{username}},
+			<br>
+			<br>
+			{{youtubeChannelName}} has just released a new video! Click below to directly go to the video, or keep scrolling for more details.
+			<br>
+			<br>
+			<a target="_blank" href="https://www.youtube.com/watch?v={{youtubeVideoId}}">{{youtubeVideoTitle}}</a>
+			<!-- Not supported by email HTML -->
+			<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/{{youtubeVideoId}}" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+			<br>
+			<br>
+			Video details:
+			<br>
+			<br>
+			Channel: <a target="_blank" href="https://www.youtube.com/channel/{{youtubeChannelId}}">{{youtubeChannelName}}</a>
+			<br>
+			Title: {{youtubeVideoTitle}}
+			<br>
+			Length: {{vidLengthInMinutes}}m {{vidLengthInSeconds}}s long
+			<br>
+			Release Date: {{youtubeVideoReleaseDate}}
+			<br>
+			Full video URL: https://www.youtube.com/channel/{{youtubeChannelId}}
+			<br>
+			Description: {{youtubeVideoDescription}}
+			<hr>
+		</p>
+	</body>
+</html>
